@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'contact' => 'Контакт',
 	'title' => 'Contact form',
 	'text' => 'If you wish to send a message please fill this form :',
 	'name' => 'Your name',

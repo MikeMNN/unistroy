@@ -36,8 +36,13 @@
 	<![endif]-->
 
 	<header role="banner">
-        <div class="company_banner">
-        <img class="col-md-offset-50" src="img/unistroy.png" alt=""></div>
+	<div class="logo col-md-16 mod-left">
+		<div class="logo-image" itemscope="">
+			<a itemprop="url" href="unistroy/public" title="Юнистрой">
+				<img class="logo-img" itemprop="logo" src="/public/img/unistroy.png" alt="Юнистрой">
+			</a>
+		</div>
+	</div>
 		<!--<div class="brand">{{ trans('front/site.title') }}</div>
 		<div class="address-bar">{{ trans('front/site.sub-title') }}</div>--->
 		<div id="flags" class="text-center"></div>

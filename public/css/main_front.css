@@ -3378,6 +3378,7 @@ mark,.mark {
 .text-left1 {
     text-align: left;
     margin-left: 80px;
+	color: #fff
 }
 
 .text-right {
@@ -3677,6 +3678,18 @@ pre code {
     overflow-y: scroll;
 }
 
+.logo {
+  text-align: center;
+}
+
+.col-md-16
+ {
+  position: relative;
+  min-height: 1px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .container {
     margin-right: auto;
     margin-left: auto;
@@ -3685,19 +3698,19 @@ pre code {
 }
 
 @media (min-width:768px) {
-    .container {
+    .col-md-16,.container {
         width: 750px;
     }
 }
 
 @media (min-width:992px) {
-    .container {
+    .col-md-16,.container {
         width: 970px;
     }
 }
 
 @media (min-width:1200px) {
-    .container {
+    .col-md-16,.container {
         width: 1170px;
     }
 }
@@ -3714,7 +3727,7 @@ pre code {
     margin-right: -15px;
 }
 
-.col-xs-1,.col-sm-1,.col-md-1,.col-lg-1,.col-xs-2,.col-sm-2,.col-md-2,.col-lg-2,.col-xs-3,.col-sm-3,.col-md-3,.col-lg-3,.col-xs-4,.col-sm-4,.col-md-4,.col-lg-4,.col-xs-5,.col-sm-5,.col-md-5,.col-lg-5,.col-xs-6,.col-sm-6,.col-md-6,.col-lg-6,.col-xs-7,.col-sm-7,.col-md-7,.col-lg-7,.col-xs-8,.col-sm-8,.col-md-8,.col-lg-8,.col-xs-9,.col-sm-9,.col-md-9,.col-lg-9,.col-xs-10,.col-sm-10,.col-md-10,.col-lg-10,.col-xs-11,.col-sm-11,.col-md-11,.col-lg-11,.col-xs-12,.col-sm-12,.col-md-12,.col-lg-12 {
+.col-xs-1,.col-sm-1,.col-md-1,.col-lg-1,.col-xs-2,.col-sm-2,.col-md-2,.col-lg-2,.col-xs-3,.col-sm-3,.col-md-3,.col-lg-3,.col-xs-4,.col-sm-4,.col-md-4,.col-lg-4,.col-xs-5,.col-sm-5,.col-md-5,.col-lg-5,.col-xs-6,.col-sm-6,.col-md-6,.col-lg-6,.col-xs-7,.col-sm-7,.col-md-7,.col-lg-7,.col-xs-8,.col-sm-8,.col-md-8,.col-lg-8,.col-xs-9,.col-sm-9,.col-md-9,.col-lg-9,.col-xs-10,.col-sm-10,.col-md-10,.col-lg-10,.col-xs-11,.col-sm-11,.col-md-11,.col-lg-11,.col-xs-12,.col-sm-12,.col-md-12,.col-lg-12, .col-lg-13, .col-lg-14 {
     position: relative;
     min-height: 1px;
     padding-left: 15px;
@@ -4350,11 +4363,23 @@ pre code {
 }
 
 @media (min-width:1200px) {
-    .col-lg-1,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9,.col-lg-10,.col-lg-11,.col-lg-12 {
+    .col-lg-1,.col-lg-2,.col-lg-3,.col-lg-4,.col-lg-5,.col-lg-6,.col-lg-7,.col-lg-8,.col-lg-9,.col-lg-10,.col-lg-11,.col-lg-13 {
         float: left;
     }
+    
+    .col-lg-14{
+        float: right;
+    }
+    
+    .col-lg-13{
+         width: 30%;
+    }
 
-    .col-lg-12 {
+    .col-lg-14 {
+        width: 70%;
+    }
+    
+    .col-lg-12{
         width: 100%;
     }
 
@@ -4721,7 +4746,7 @@ legend {
     width: 100%;
     padding: 0;
     margin-bottom: 20px;
-    font-size: 21px;
+    font-size: 16px;
     line-height: inherit;
     color: #333;
     border: 0;
@@ -6215,13 +6240,13 @@ textarea.input-group-sm>.form-control,textarea.input-group-sm>.input-group-addon
     }
 }
 
-.container>.navbar-header,.container-fluid>.navbar-header,.container>.navbar-collapse,.container-fluid>.navbar-collapse {
+.company_banner>.col-md-offset-50,.container>.navbar-header,.container-fluid>.navbar-header,.container>.navbar-collapse,.container-fluid>.navbar-collapse {
     margin-right: -15px;
     margin-left: -15px;
 }
 
 @media (min-width:768px) {
-    .container>.navbar-header,.container-fluid>.navbar-header,.container>.navbar-collapse,.container-fluid>.navbar-collapse {
+    .company_banner>.col-md-offset-50,.container>.navbar-header,.container-fluid>.navbar-header,.container>.navbar-collapse,.container-fluid>.navbar-collapse {
         margin-right: 0;
         margin-left: 0;
     }
@@ -6515,11 +6540,6 @@ textarea.input-group-sm>.form-control,textarea.input-group-sm>.input-group-addon
 .navbar-default {
     background-color: RGBA(40,40,40,.9);
     border-color: #e7e7e7;
-}
-
-.company_banner1 {
-    position:relative;
-    box-sizing: border-box;
 }
 
 .navbar-default .navbar-brand {
@@ -8455,7 +8475,7 @@ button.close {
     }
 }
 
-.clearfix:before,.clearfix:after,.dl-horizontal dd:before,.dl-horizontal dd:after,.container:before,.container:after,.container-fluid:before,.container-fluid:after,.row:before,.row:after,.form-horizontal .form-group:before,.form-horizontal .form-group:after,.btn-toolbar:before,.btn-toolbar:after,.btn-group-vertical>.btn-group:before,.btn-group-vertical>.btn-group:after,.nav:before,.nav:after,.navbar:before,.navbar:after,.navbar-header:before,.navbar-header:after,.navbar-collapse:before,.navbar-collapse:after,.pager:before,.pager:after,.panel-body:before,.panel-body:after,.modal-footer:before,.modal-footer:after {
+.clearfix:before,.clearfix:after,.dl-horizontal dd:before,.dl-horizontal dd:after,.container:before,.container:after,.container-fluid:before,.container-fluid:after,.row:before,.row:after,.form-horizontal .form-group:before,.form-horizontal .form-group:after,.btn-toolbar:before,.btn-toolbar:after,.btn-group-vertical>.btn-group:before,.btn-group-vertical>.btn-group:after,.nav:before,.nav:after,.navbar:before,.navbar:after,.navbar-header:before,.navbar-header:after,.navbar-collapse:before,.navbar-collapse:after,.pager:before,.pager:after,.panel-body:before,.panel-body:after,.modal-footer:before,.modal-footer:after, .logo:before, .logo:after {
     content: " ";
     display: table;
 }
@@ -8818,11 +8838,20 @@ ul {
 .box {
     margin-bottom: 20px;
     padding: 30px 15px;
-    background: #fff;
-    background: rgba(255,255,255,.9);
 }
 
 .intro-text {
+
+    text-transform: uppercase;
+    font-size: 1.25em;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+.intro-text-1 {
+    margin-left: 30;
+    margin-bottom: 30;
+    float:left;
     text-transform: uppercase;
     font-size: 1.25em;
     font-weight: 400;
@@ -8885,6 +8914,14 @@ footer p {
         letter-spacing: 3px;
         color: #fff;
     }
+    
+    .module-ct{
+        box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+        background: #fff;
+        padding: 10px;
+        margin-bottom: 30px;
+        border-radius: 5px;
+    }
 
     .navbar {
         border-radius: 0;
@@ -8928,6 +8965,8 @@ footer p {
         clear: both;
     }
 }
+
+
 
 .pagination>.active>a,.pagination>.active>span,.pagination>.active>a:hover,.pagination>.active>span:hover,.pagination>.active>a:focus,.pagination>.active>span:focus {
     background-color: #aaa!important;
