@@ -36,9 +36,10 @@
 	<![endif]-->
 
 	<header role="banner">
-
-		<div class="brand">{{ trans('front/site.title') }}</div>
-		<div class="address-bar">{{ trans('front/site.sub-title') }}</div>
+        <div class="company_banner">
+        <img class="col-md-offset-50" src="img/unistroy.png" alt=""></div>
+		<!--<div class="brand">{{ trans('front/site.title') }}</div>
+		<div class="address-bar">{{ trans('front/site.sub-title') }}</div>--->
 		<div id="flags" class="text-center"></div>
 		<nav class="navbar navbar-default" role="navigation">
 			<div class="container">
