@@ -18,10 +18,10 @@
 
 					{!! Form::control('text', 6, 'log', $errors, trans('front/login.log')) !!}
 					{!! Form::control('password', 6, 'password', $errors, trans('front/login.password')) !!}
-					{!! Form::submit(trans('front/form.send'), ['col-lg-12']) !!}
+					{!! Form::submit(trans('front/form.send'), ['col-lg-15']) !!}
 					{!! Form::check('memory', trans('front/login.remind')) !!}
 					{!! Form::text('address', '', ['class' => 'hpet']) !!}		  
-					<div class="col-lg-12">					
+					<div class="col-lg-15">
 						{!! link_to('password/email', trans('front/login.forget')) !!}
 					</div>
 

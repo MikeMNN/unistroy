@@ -28,10 +28,10 @@
 
 						{!! Form::control('text', 6, 'name', $errors, trans('front/contact.name')) !!}
 						{!! Form::control('email', 6, 'email', $errors, trans('front/contact.email')) !!}
-						{!! Form::control('textarea', 12, 'message', $errors, trans('front/contact.message')) !!}
+						{!! Form::control('textarea', 15, 'message', $errors, trans('front/contact.message')) !!}
 						{!! Form::text('address', '', ['class' => 'hpet']) !!}		
 
-					  	{!! Form::submit(trans('front/form.send'), ['col-lg-12']) !!}
+					  	{!! Form::submit(trans('front/form.send'), ['col-lg-15']) !!}
 
 					</div>
 					
