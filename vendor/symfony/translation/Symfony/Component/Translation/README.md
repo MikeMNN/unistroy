@@ -10,11 +10,11 @@ use Symfony\Component\Translation\MessageSelector;
 use Symfony\Component\Translation\Loader\ArrayLoader;
 
 $translator = new Translator('fr_FR', new MessageSelector());
-$translator->setFallbackLocales(array('ru'));
+$translator->setFallbackLocales(array('fr'));
 $translator->addLoader('array', new ArrayLoader());
 $translator->addResource('array', array(
     'Hello World!' => 'Bonjour',
-), 'ru');
+), 'fr');
 
 echo $translator->trans('Hello World!')."\n";
 ```
@@ -28,7 +28,7 @@ https://github.com/fabpot/Silex/blob/master/src/Silex/Provider/TranslationServic
 
 Documentation:
 
-http://symfony.com/doc/2.6/book/translation.html
+https://symfony.com/doc/2.6/book/translation.html
 
 You can run the unit tests with the following command:
 

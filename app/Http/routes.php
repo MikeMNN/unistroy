@@ -44,6 +44,17 @@ Route::put('postactive/{id}', 'BlogController@updateActive');
 
 Route::resource('blog', 'BlogController');
 
+// Services
+Route::get('services/order', 'ServicesController@indexOrder');
+Route::get('services', 'ServicesController@indexFront');
+Route::get('services/materials', 'ServicesController@materials');
+Route::get('services/search', 'ServicesController@search');
+
+Route::put('servicesseen/{id}', 'ServicesController@updateSeen');
+Route::put('servicesactive/{id}', 'ServicesController@updateActive');
+
+Route::resource('services', 'ServicesController');
+
 // Comment
 Route::resource('comment', 'CommentController', [
 	'except' => ['create', 'show']
