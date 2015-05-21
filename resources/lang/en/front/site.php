@@ -6,6 +6,7 @@ return [
 	'home' => 'Home',
 	'contact' => 'Contact',
 	'blog' => 'Shop',
+    'services' => 'Services',
 	'register' => 'Register',
 	'forget-password' => 'Forgotten password',
 	'connection' => 'Connection',

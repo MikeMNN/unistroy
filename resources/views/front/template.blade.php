@@ -70,6 +70,9 @@
 						<li {!! Request::segment(1) == ('articles') || Request::segment(1) == ('blog') ? 'class="active"' : '' !!}>
 							{!! link_to('articles', trans('front/site.blog')) !!}
 						</li>
+                        <li {!! Request::segment(1) == ('articles') || Request::segment(1) == ('blog') ? 'class="active"' : '' !!}>
+                        {!! link_to('articles', trans('front/site.services')) !!}
+                        </li>
 						@if(Request::is('auth/register'))
 							<li class="active">
 								{!! link_to('auth/register', trans('front/site.register')) !!}

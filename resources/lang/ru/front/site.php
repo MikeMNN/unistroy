@@ -6,6 +6,7 @@ return [
 	'home' => 'Домашняя',
 	'contact' => 'Контакты',
 	'blog' => 'Материалы',
+    'services' => 'Услуги',
 	'register' => 'Регистрация',
 	'forget-password' => 'Забытый пароль',
 	'connection' => 'Вход',
