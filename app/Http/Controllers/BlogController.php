@@ -43,7 +43,7 @@ class BlogController extends Controller {
 	{
 		$this->user_gestion = $user_gestion;
 		$this->blog_gestion = $blog_gestion;
-		$this->nbrPages = 2;
+		$this->nbrPages = 10;
 
 		$this->middleware('redac', ['except' => ['indexFront', 'show', 'tag', 'search']]);
 		$this->middleware('ajax', ['only' => ['indexOrder', 'updateSeen', 'updateActive']]);
@@ -133,7 +133,7 @@ class BlogController extends Controller {
 		Guard $auth, 
 		$slug)
 	{
-		$user = $auth->user();
+		//$user = $auth->user();
 
 		return view('front.blog.show',  array_merge($this->blog_gestion->show($slug), compact('user')));
 	}
@@ -242,7 +242,7 @@ class BlogController extends Controller {
 		$search = $request->input('search');
 		$posts = $this->blog_gestion->search($this->nbrPages, $search);
 		$links = str_replace('/?', '?', $posts->appends(compact('search'))->render());
-		$info = trans('front/blog.info-search') . '<strong>' . $search . '</strong>';
+		$info =  '<strong>' . $search . '</strong>';
 		
 		return view('front.blog.index', compact('posts', 'links', 'info'));
 	}

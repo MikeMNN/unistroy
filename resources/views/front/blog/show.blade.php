@@ -11,20 +11,17 @@
 		<div class="box">
 			<div class="col-lg-12">
 				<hr>
-				<h2 class="text-center">{{ $post->title }}
-				<br>
-				<small>{{ $post->user->username }} {{ trans('front/blog.on') }} {!! $post->created_at . ($post->created_at != $post->updated_at ? trans('front/blog.updated') . $post->updated_at : '') !!}</small>
-				</h2>
+				<h2 class="text-center">{{ $post->title }}</h2>
 				<hr>
 				{!! $post->summary !!}<br>
 				{!! $post->content !!}
 				<hr>
-				@if($post->tags->count())
+				@if($post->materials->count())
 					<div class="text-center">
-						@if($post->tags->count() > 0)
-							<small>{{ trans('front/blog.tags') }}</small> 
+						@if($post->materials->count() > 0)
+							<small>{{ trans('front/services.materials') }}</small>
 							@foreach($post->tags as $tag)
-								{!! link_to('blog/tag?tag=' . $tag->id, $tag->tag, ['class' => 'btn btn-default btn-xs']) !!}
+								{!! link_to('service/tag?tag=' . $tag->id, $tag->tag, ['class' => 'btn btn-default btn-xs']) !!}
 							@endforeach
 						@endif
 					</div>
@@ -36,36 +33,17 @@
 	<div class="row">
 		<div class="box">
 			<div class="col-lg-12">
-				<div class="col-lg-12">
-					<hr>
-					<h3 class="text-center">{{ trans('front/blog.comments') }}</h3>
-					<hr>
-
-					@if($comments->count())
-						@foreach($comments as $comment)
-							<div class="commentitem">
-								<h3>
-									<small>{{ $comment->user->username . ' ' . trans('front/blog.on') . ' ' . $comment->created_at }}</small>
-									@if($user && $user->username == $comment->user->username) 
-										<a id="deletecomment{!! $comment->id !!}" href="#" class="deletecomment"><span class="fa fa-fw fa-trash pull-right" data-toggle="tooltip" data-placement="left" title="{{ trans('front/blog.delete') }}"></span></a>
-										<a id="comment{!! $comment->id !!}" href="#" class="editcomment"><span class="fa fa-fw fa-pencil pull-right" data-toggle="tooltip" data-placement="left" title="{{ trans('front/blog.edit') }}"></span></a>
-									@endif
-								</h3>
-								<div id="contenu{!! $comment->id !!}">{!! $comment->content !!}</div>
-								<hr>
-							</div>
-						@endforeach
-					@endif	
+				<div class="col-lg-14">
+					<h3 class="text-right">{{ trans('front/services.cost') }}</h3>
 
 					<div class="row" id="formcreate"> 
 						@if(session()->has('warning'))
 							@include('partials/error', ['type' => 'warning', 'message' => session('warning')])
 						@endif	
 						@if(session('statut') != 'visitor')
-							{!! Form::open(['url' => 'comment']) !!}	
+							{!! Form::open(['url' => 'comment']) !!}
 								{!! Form::hidden('post_id', $post->id) !!}
-								{!! Form::control('textarea', 12, 'comments', $errors, trans('front/blog.comment')) !!}
-								{!! Form::submit(trans('front/form.send'), ['col-lg-12']) !!}
+								{!! Form::submit(trans('front/form.send'), ['text-right']) !!}
 							{!! Form::close() !!}
 						@else
 							<div class="text-center"><i class="text-center">{{ trans('front/blog.info-comment') }}</i></div>
@@ -80,7 +58,7 @@
 </div>
 
 @stop
-
+<!--
 @section('scripts')
 
 	{!! HTML::script('ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js') !!}
@@ -195,3 +173,4 @@
 	</script>
 
 @stop
+-->

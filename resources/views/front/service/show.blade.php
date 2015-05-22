@@ -20,7 +20,7 @@
                         @if($post->tags->count() > 0)
                             <small>{{ trans('front/blog.tags') }}</small>
                             @foreach($post->tags as $tag)
-                                {!! link_to('blog/tag?tag=' . $tag->id, $tag->tag, ['class' => 'btn btn-default btn-xs']) !!}
+                                {!! link_to('service/tag?tag=' . $tag->id, $tag->tag, ['class' => 'btn btn-default btn-xs']) !!}
                             @endforeach
                         @endif
                     </div>
@@ -134,7 +134,7 @@
             // Escape edition
             $(document).on('click', '.btnannuler', function() {
                 var i = $(this).attr('id').substring(3);
-                $('#comment' + i).show();
+                //$('#comment' + i).show();
                 $('#contenu' + i).html(jQuery.data(document.body, 'comment' + i));
             });
 
@@ -149,7 +149,7 @@
                     data: $(this).serialize()
                 })
                         .done(function(data) {
-                            $('#comment' + data.id).show();
+                            //$('#comment' + data.id).show();
                             $('#contenu' + data.id).html(data.content);
                         })
                         .fail(function(data) {

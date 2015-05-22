@@ -4,6 +4,7 @@ use App\Repositories\ContactRepository;
 use App\Repositories\UserRepository;
 use App\Repositories\BlogRepository;
 use App\Repositories\CommentRepository;
+use App\Repositories\ServiceRepository;
 
 class AdminController extends Controller {
 

@@ -2,13 +2,8 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Material extends Model  {
+class Materials extends Model {
 
-    /**
-     * The database table used by the model.
-     *
-     * @var string
-     */
     protected $table = 'materials';
 
     /**
@@ -16,9 +11,9 @@ class Material extends Model  {
      *
      * @return Illuminate\Database\Eloquent\Relations\belongToMany
      */
-    public function posts()
+    public function service()
     {
-        return $this->belongsToMany('App\Models\Services');
+        return $this->belongsToMany('App\Models\Service');
     }
 
 }

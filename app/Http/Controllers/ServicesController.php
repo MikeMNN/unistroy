@@ -2,6 +2,7 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Repositories\ServiceRepository;
 
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class ServicesController extends Controller {
      *
      * @var App\Repositories\BlogRepository
      */
-    protected $blog_gestion;
+    protected $service_gestion;
 
     /**
      * The UserRepository instance.
@@ -36,15 +37,15 @@ class ServicesController extends Controller {
      * @return void
      */
     public function __construct(
-        BlogRepository $blog_gestion,
+        ServicesRepository $service_gestion,
         UserRepository $user_gestion)
     {
         $this->user_gestion = $user_gestion;
-        $this->blog_gestion = $blog_gestion;
+        $this->service_gestion = $service_gestion;
         $this->nbrPages = 2;
 
-        $this->middleware('redac', ['except' => ['indexFront', 'show', 'tag', 'search']]);
-        $this->middleware('ajax', ['only' => ['indexOrder', 'updateSeen', 'updateActive']]);
+        //$this->middleware('redac', ['except' => ['indexFront', 'show', 'tag', 'search']]);
+        //$this->middleware('ajax', ['only' => ['indexOrder', 'updateSeen', 'updateActive']]);
     }
 
     /**
@@ -54,10 +55,10 @@ class ServicesController extends Controller {
      */
     public function indexFront()
     {
-        $posts = $this->blog_gestion->indexFront($this->nbrPages);
-        $links = str_replace('/?', '?', $posts->render());
+        $posts = $this->service_gestion->indexFront($this->nbrPages);
+        $links = str_replace('/?', '?', $services->render());
 
-        return view('front.blog.index', compact('posts', 'links'));
+        return view('front.service.index', compact('services', 'links'));
     }
 
     /**
@@ -69,11 +70,11 @@ class ServicesController extends Controller {
     public function index(Guard $auth)
     {
         $statut = $this->user_gestion->getStatut();
-        $posts = $this->blog_gestion->index(10, $statut == 'admin' ? null : $auth->user()->id);
+        $posts = $this->service_gestion->index(10, $statut == 'admin' ? null : $auth->user()->id);
 
         $links = str_replace('/?', '?', $posts->render());
 
-        return view('back.blog.index', compact('posts', 'links'));
+        return view('back.service.index', compact('services', 'links'));
     }
 
     /**
@@ -85,12 +86,12 @@ class ServicesController extends Controller {
     public function indexOrder(Request $request)
     {
         $statut = $this->user_gestion->getStatut();
-        $posts = $this->blog_gestion->index(10, $statut == 'admin' ? null : $request->user()->id, $request->input('name'), $request->input('sens'));
+        $posts = $this->service_gestion->index(10, $statut == 'admin' ? null : $request->user()->id, $request->input('name'), $request->input('sens'));
 
         $links = str_replace('/?', '?', $posts->render());
 
         return response()->json([
-            'view' => view('back.blog.table', compact('statut', 'posts'))->render(),
+            'view' => view('back.service.table', compact('statut', 'services'))->render(),
             'links' => $links
         ]);
     }
@@ -104,7 +105,7 @@ class ServicesController extends Controller {
     {
         $url = config('medias.url');
 
-        return view('back.blog.create')->with(compact('url'));
+        return view('back.service.create')->with(compact('url'));
     }
 
     /**
@@ -115,9 +116,9 @@ class ServicesController extends Controller {
      */
     public function store(PostRequest $request)
     {
-        $this->blog_gestion->store($request->all(), $request->user()->id);
+        $this->service_gestion->store($request->all(), $request->user()->id);
 
-        return redirect('blog')->with('ok', trans('back/blog.stored'));
+        return redirect('service')->with('ok', trans('back/service.stored'));
     }
 
     /**
@@ -133,7 +134,7 @@ class ServicesController extends Controller {
     {
         $user = $auth->user();
 
-        return view('front.blog.show',  array_merge($this->blog_gestion->show($slug), compact('user')));
+        return view('front.service.show',  array_merge($this->service_gestion->show($slug), compact('user')));
     }
 
     /**
@@ -149,7 +150,7 @@ class ServicesController extends Controller {
     {
         $url = config('medias.url');
 
-        return view('back.blog.edit',  array_merge($this->blog_gestion->edit($id), compact('url')));
+        return view('back.service.edit',  array_merge($this->service_gestion->edit($id), compact('url')));
     }
 
     /**
@@ -163,9 +164,9 @@ class ServicesController extends Controller {
         PostRequest $request,
         $id)
     {
-        $this->blog_gestion->update($request->all(), $id);
+        $this->service_gestion->update($request->all(), $id);
 
-        return redirect('blog')->with('ok', trans('back/blog.updated'));
+        return redirect('service')->with('ok', trans('back/service.updated'));
     }
 
     /**
@@ -179,7 +180,7 @@ class ServicesController extends Controller {
         Request $request,
         $id)
     {
-        $this->blog_gestion->updateSeen($request->all(), $id);
+        $this->service_gestion->updateSeen($request->all(), $id);
 
         return response()->json();
     }
@@ -195,7 +196,7 @@ class ServicesController extends Controller {
         Request $request,
         $id)
     {
-        $this->blog_gestion->updateActive($request->all(), $id);
+        $this->service_gestion->updateActive($request->all(), $id);
 
         return response()->json();
     }
@@ -208,9 +209,9 @@ class ServicesController extends Controller {
      */
     public function destroy($id)
     {
-        $this->blog_gestion->destroy($id);
+        $this->service_gestion->destroy($id);
 
-        return redirect('blog')->with('ok', trans('back/blog.destroyed'));
+        return redirect('service')->with('ok', trans('back/service.destroyed'));
     }
 
     /**
@@ -238,11 +239,11 @@ class ServicesController extends Controller {
     public function search(SearchRequest $request)
     {
         $search = $request->input('search');
-        $posts = $this->blog_gestion->search($this->nbrPages, $search);
-        $links = str_replace('/?', '?', $posts->appends(compact('search'))->render());
-        $info = trans('front/blog.info-search') . '<strong>' . $search . '</strong>';
+        $posts = $this->service_gestion->search($this->nbrPages, $search);
+        $links = str_replace('/?', '?', $services->appends(compact('search'))->render());
+        $info = trans('front/service.info-search') . '<strong>' . $search . '</strong>';
 
-        return view('front.blog.index', compact('posts', 'links', 'info'));
+        return view('front.service.index', compact('services', 'links', 'info'));
     }
 
 

@@ -112,7 +112,7 @@
         $('.breadcrumb li').append('<span id="tempo" class="fa fa-refresh fa-spin"></span>');       
         // Send ajax
         $.ajax({
-          url: 'blog/order',
+          url: 'service/order',
           type: 'GET',
           dataType: 'json',
           data: "name=" + $(this).attr('name') + "&sens=" + tri

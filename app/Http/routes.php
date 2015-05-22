@@ -34,26 +34,15 @@ Route::get('medias', [
 
 
 // Blog
-Route::get('blog/order', 'BlogController@indexOrder');
-Route::get('articles', 'BlogController@indexFront');
-Route::get('blog/tag', 'BlogController@tag');
-Route::get('blog/search', 'BlogController@search');
+Route::get('service/order', 'BlogController@indexOrder');
+Route::get('services', 'BlogController@indexFront');
+Route::get('service/tag', 'BlogController@tag');
+Route::get('service/search', 'BlogController@search');
 
 Route::put('postseen/{id}', 'BlogController@updateSeen');
 Route::put('postactive/{id}', 'BlogController@updateActive');
 
-Route::resource('blog', 'BlogController');
-
-// Services
-Route::get('services/order', 'ServicesController@indexOrder');
-Route::get('services', 'ServicesController@indexFront');
-Route::get('services/materials', 'ServicesController@materials');
-Route::get('services/search', 'ServicesController@search');
-
-Route::put('servicesseen/{id}', 'ServicesController@updateSeen');
-Route::put('servicesactive/{id}', 'ServicesController@updateActive');
-
-Route::resource('services', 'ServicesController');
+Route::resource('service', 'BlogController');
 
 // Comment
 Route::resource('comment', 'CommentController', [

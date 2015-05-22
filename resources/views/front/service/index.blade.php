@@ -13,7 +13,7 @@
                     <p>{!! $post->summary !!}</p>
                 </div>
                 <div class="col-lg-12 text-center">
-                    {!! link_to('blog/' . $post->slug, trans('front/blog.button'), ['class' => 'btn btn-default btn-lg']) !!}
+                    {!! link_to('service/' . $post->slug, trans('front/blog.button'), ['class' => 'btn btn-default btn-lg']) !!}
                     <hr>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 <?php namespace App\Repositories;
 
-use App\Models\Post, App\Models\Tag, App\Models\Comment;
+use App\Models\Service, App\Models\Materials, App\Models\Post, App\Models\Tag, App\Models\Comment;
 
 class BlogRepository extends BaseRepository{
 
@@ -9,14 +9,13 @@ class BlogRepository extends BaseRepository{
 	 *
 	 * @var App\Models\Tag
 	 */
-	protected $tag;
+	protected $material;
 
 	/**
 	 * The Comment instance.
 	 *
 	 * @var App\Models\Comment
 	 */
-	protected $comment;
 
 	/**
 	 * Create a new BlogRepository instance.
@@ -27,13 +26,11 @@ class BlogRepository extends BaseRepository{
 	 * @return void
 	 */
 	public function __construct(
-		Post $post, 
-		Tag $tag, 
-		Comment $comment)
+		Service $service,
+		Materials $materials)
 	{
-		$this->model = $post;
-		$this->tag = $tag;
-		$this->comment = $comment;
+		$this->model = $service;
+		$this->tag = $materials;
 	}
 
 	/**
@@ -66,10 +63,8 @@ class BlogRepository extends BaseRepository{
   	private function queryActiveWithUserOrderByDate()
 	{	
 		return $this->model
-		->select('id', 'created_at', 'updated_at', 'title', 'slug', 'user_id', 'summary')
-		->whereActive(true)
-		->with('user')
-		->latest();
+		->select('id', 'title', 'slug', 'content', 'cost')
+            ->orderBy('title', 'asc');
 	}
 
 	/**
@@ -96,7 +91,7 @@ class BlogRepository extends BaseRepository{
 	{
 		$query = $this->queryActiveWithUserOrderByDate();
 
-		return $query->whereHas('tags', function($q) use($id) { $q->where('tags.id', $id); })
+		return $query->whereHas('materials', function($q) use($id) { $q->where('materials.id', $id); })
 					->paginate($n);
 	}
 
@@ -112,8 +107,7 @@ class BlogRepository extends BaseRepository{
 		$query = $this->queryActiveWithUserOrderByDate();
 
 		return $query->where(function($q) use ($search) {
-			$q->where('summary', 'like', "%$search%")
-				->orWhere('content', 'like', "%$search%");
+			$q->where('content', 'like', "%$search%");
 		})->paginate($n);
 	}
 
@@ -126,11 +120,10 @@ class BlogRepository extends BaseRepository{
 	 * @param  string  $direction
 	 * @return Illuminate\Support\Collection
 	 */
-	public function index($n, $user_id = null, $orderby = 'created_at', $direction = 'desc')
+	public function index($n, $user_id = null, $orderby = 'title', $direction = 'desc')
 	{
 		$query = $this->model
-		->select('posts.id', 'posts.created_at', 'title', 'posts.seen', 'active', 'user_id', 'slug', 'username')
-		->join('users', 'users.id', '=', 'posts.user_id')
+		->select('services.id', 'title', 'slug', 'content')
 		->orderBy($orderby, $direction);
 
 		if($user_id) 
@@ -149,15 +142,9 @@ class BlogRepository extends BaseRepository{
 	 */
 	public function show($slug)
 	{
-		$post = $this->model->with('user', 'tags')->whereSlug($slug)->firstOrFail();
+		$post = $this->model->whereSlug($slug)->firstOrFail();
 
-		$comments = $this->comment
-		->wherePost_id($post->id)
-		->with('user')
-		->whereHas('user', function($q) { $q->whereValid(true); })
-		->get();
-
-		return compact('post', 'comments');
+		return compact('post');
 	}
 
 	/**

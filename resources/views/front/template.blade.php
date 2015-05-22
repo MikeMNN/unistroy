@@ -26,6 +26,7 @@
 
 		{!! HTML::style('http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800') !!}
 		{!! HTML::style('http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic') !!}
+        <link href="http://unistroy/public/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 	</head>
 
@@ -67,12 +68,18 @@
 								{!! link_to('contact/create', trans('front/site.contact')) !!}
 							</li>
 						@endif
-						<li {!! Request::segment(1) == ('articles') || Request::segment(1) == ('blog') ? 'class="active"' : '' !!}>
-							{!! link_to('articles', trans('front/site.blog')) !!}
+						<!--<li {!! Request::segment(1) == ('services') || Request::segment(1) == ('service') ? 'class="active"' : '' !!}>
+							{!! link_to('services', trans('front/site.services')) !!}-->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{trans('front/site.services')}}<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li>{!! link_to('services', trans('front/site.cellings')) !!}</li>
+                                <li>{!! link_to('services', trans('front/site.wall')) !!}</li>
+                                <li>{!! link_to('services', trans('front/site.floor')) !!}</li>
+                                <li>{!! link_to('services', trans('front/site.opennings')) !!}</li>
+                                <li>{!! link_to('services', trans('front/site.etc')) !!}</li>
+                            </ul>
 						</li>
-                        <li {!! Request::segment(1) == ('articles') || Request::segment(1) == ('blog') ? 'class="active"' : '' !!}>
-                        {!! link_to('articles', trans('front/site.services')) !!}
-                        </li>
 						@if(Request::is('auth/register'))
 							<li class="active">
 								{!! link_to('auth/register', trans('front/site.register')) !!}
@@ -93,7 +100,7 @@
 									</li>
 								@elseif(session('statut') == 'redac') 
 									<li>
-										{!! link_to('blog', trans('front/site.redaction')) !!}
+										{!! link_to('service', trans('front/site.redaction')) !!}
 									</li>
 								@endif
 								<li>
