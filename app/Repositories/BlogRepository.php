@@ -73,12 +73,45 @@ class BlogRepository extends BaseRepository{
 	 * @param  int  $n
 	 * @return Illuminate\Support\Collection
 	 */
-	public function indexFront($n)
+	public function indexCellings($n)
 	{
 		$query = $this->queryActiveWithUserOrderByDate();
 
-		return $query->paginate($n);
+		return $query->where('type', 1)
+            ->paginate($n);
 	}
+
+    public function indexWalls($n)
+    {
+        $query = $this->queryActiveWithUserOrderByDate();
+
+        return $query->where('type', 2)
+            ->paginate($n);
+    }
+
+    public function indexFloor($n)
+    {
+        $query = $this->queryActiveWithUserOrderByDate();
+
+        return $query->where('type', 3)
+        ->paginate($n);
+    }
+
+    public function indexOpennings($n)
+    {
+        $query = $this->queryActiveWithUserOrderByDate();
+
+        return $query->where('type', 4)
+            ->paginate($n);
+    }
+
+    public function indexEtc($n)
+    {
+        $query = $this->queryActiveWithUserOrderByDate();
+
+        return $query->where('type', 5)
+            ->paginate($n);
+    }
 
 	/**
 	 * Get post collection.
@@ -107,7 +140,7 @@ class BlogRepository extends BaseRepository{
 		$query = $this->queryActiveWithUserOrderByDate();
 
 		return $query->where(function($q) use ($search) {
-			$q->where('content', 'like', "%$search%");
+			$q->where('title', 'like', "%$search%");
 		})->paginate($n);
 	}
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 22 2015 г., 07:35
+-- Время создания: Май 25 2015 г., 06:18
 -- Версия сервера: 5.5.41-log
 -- Версия PHP: 5.4.35
 
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `materials` (
   `type` int(11) NOT NULL,
   `cost` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
 -- Дамп данных таблицы `materials`
@@ -100,7 +100,11 @@ INSERT INTO `materials` (`id`, `name`, `summary`, `content`, `type`, `cost`) VAL
 (3, 'Плинтус керамика', '', 'Плинтус из керамической плитка 50мм', 0, 5),
 (4, 'Деревянный плинтус', '', '', 0, 65),
 (5, 'Пластиковый плинтус', '', '', 0, 75),
-(6, 'Керамическая плитка', '', '', 0, 95);
+(6, 'Керамическая плитка', '', '', 0, 95),
+(7, 'Гипсовый состав', '<img alt="" src="/public/filemanager/userfiles/greatredactor/mega-champignon-icone-8453-128.png" style="float:left; height:128px; width:128px" />', '', 0, 89),
+(8, 'Масляно-клеевый состав', '<img alt="" src="/public/filemanager/userfiles/greatredactor/rouge-shyguy-icone-6870-128.png" style="float:left; height:128px; width:128px" />', '', 0, 63),
+(9, 'Армированная сетка', '', '', 0, 45),
+(10, 'Стеклохолст', '', '', 0, 77);
 
 -- --------------------------------------------------------
 
@@ -244,16 +248,22 @@ CREATE TABLE IF NOT EXISTS `services` (
   `type` int(11) NOT NULL,
   `cost` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
 -- Дамп данных таблицы `services`
 --
 
 INSERT INTO `services` (`id`, `title`, `slug`, `content`, `type`, `cost`) VALUES
-(1, 'Установка плинтусов', 'serv-1', 'Установка декоративных и защитных элементов отделки помещений для сокрытия угла между полом (или потолком) и стеной, тяга, идущая по низу стены.', 1, 180),
-(2, 'Облицовка по диагонали простая', 'slide-1', '', 1, 600),
-(3, 'Облицовка по диагонали сложная', 'slide-2', '', 1, 650);
+(1, 'Установка плинтусов', 'serv-1', 'Установка декоративных и защитных элементов отделки помещений для сокрытия угла между полом (или потолком) и стеной, тяга, идущая по низу стены.', 3, 180),
+(2, 'Облицовка по диагонали простая', 'slide-1', '', 3, 600),
+(3, 'Облицовка по диагонали сложная', 'slide-2', '', 3, 650),
+(4, 'Шпатлевка со шлифовкой под покраску', 'shpat-1', '', 1, 150),
+(5, 'Армирование штукатурки', 'arm-1', '', 2, 80),
+(6, 'Проклейка стен', 'prokl-1', '', 2, 49),
+(7, 'Установка дверного доводчика', 'dovod', '', 4, 600),
+(8, 'Оформление дверных проёмов в деревянных перегородках', 'oform-1', '', 4, 750),
+(9, 'Устройство бетонного криволинейного бортика', 'bet-1', '', 5, 800);
 
 -- --------------------------------------------------------
 
@@ -264,24 +274,28 @@ INSERT INTO `services` (`id`, `title`, `slug`, `content`, `type`, `cost`) VALUES
 CREATE TABLE IF NOT EXISTS `service_materials` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `service_id` int(10) unsigned NOT NULL,
-  `material_id` int(10) unsigned NOT NULL,
+  `materials_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `service_materials_service_id_foreign` (`service_id`),
-  KEY `service_materials_material_id_foreign` (`material_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
+  KEY `service_materials_materials_id_foreign` (`materials_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
 
 --
 -- Дамп данных таблицы `service_materials`
 --
 
-INSERT INTO `service_materials` (`id`, `service_id`, `material_id`) VALUES
+INSERT INTO `service_materials` (`id`, `service_id`, `materials_id`) VALUES
 (1, 1, 1),
 (2, 1, 2),
 (3, 1, 3),
 (4, 1, 4),
 (5, 1, 5),
 (6, 2, 6),
-(7, 3, 6);
+(7, 3, 6),
+(8, 4, 7),
+(9, 4, 8),
+(10, 5, 10),
+(11, 6, 9);
 
 -- --------------------------------------------------------
 
@@ -339,7 +353,7 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `role_id`, `seen`, `
 (1, 'GreatAdmin', 'admin@la.fr', '$2y$10$kZzXRdsZUkrpxR/qKqIbs.XdQOC0vfZe3xyrM33hJjHUop9Bt0Zcm', 1, 1, 0, '2015-05-18 20:33:14', '2015-05-18 20:33:14', NULL),
 (2, 'GreatRedactor', 'redac@la.fr', '$2y$10$/MMcutewol7J.4YQuclI3u4tgGemLUewH/pBW0ZRabc8cNNkaX99S', 2, 1, 1, '2015-05-18 20:33:14', '2015-05-18 20:33:14', NULL),
 (3, 'Walker', 'walker@la.fr', '$2y$10$BI3VolnP9jONMMKiZrrGhehGBHwqmvumj2hnYkMSI90wI3GtcHyja', 3, 0, 0, '2015-05-18 20:33:14', '2015-05-18 20:33:14', NULL),
-(4, 'Slacker', 'slacker@la.fr', '$2y$10$NOqaTlOeayhz8QTeBPneCehLcwdPiidE5Ey9W9zZIdpbzs96wr1tm', 3, 0, 0, '2015-05-18 20:33:14', '2015-05-21 13:09:43', 'UBjqxdkbDGCaHyucM5qEKbMMImq6agdt3Vm1lfHhk5o1d8ScEOeWZeL9DprL');
+(4, 'Slacker', 'slacker@la.fr', '$2y$10$NOqaTlOeayhz8QTeBPneCehLcwdPiidE5Ey9W9zZIdpbzs96wr1tm', 3, 0, 0, '2015-05-18 20:33:14', '2015-05-24 22:49:03', 'sX9reWfrRnIOjPyK5zwonrfOHc8fnxZhmaB95dLD10vlp6XvAyoZNXaXQce8');
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -369,7 +383,7 @@ ALTER TABLE `post_tag`
 -- Ограничения внешнего ключа таблицы `service_materials`
 --
 ALTER TABLE `service_materials`
-  ADD CONSTRAINT `service_materials_material_id_foreign` FOREIGN KEY (`material_id`) REFERENCES `materials` (`id`),
+  ADD CONSTRAINT `service_materials_materials_id_foreign` FOREIGN KEY (`materials_id`) REFERENCES `materials` (`id`),
   ADD CONSTRAINT `service_materials_service_id_foreign` FOREIGN KEY (`service_id`) REFERENCES `services` (`id`);
 
 --

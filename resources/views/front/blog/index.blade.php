@@ -13,14 +13,25 @@
     </div>
 
     <div class="row">
-
+        <hr>
+        @if($type == 1)
+        <h2 class="text-center">{{trans('front/site.cellings')}}</h2>
+            @elseif($type == 2)
+            <h2 class="text-center">{{trans('front/site.wall')}}</h2>
+                      @elseif($type == 3)
+                        <h2 class="text-center">{{trans('front/site.floor')}}</h2>
+                          @elseif($type == 4)
+                            <h2 class="text-center">{{trans('front/site.opennings')}}</h2>
+                              @elseif($type == 5)
+                                <h2 class="text-center">{{trans('front/site.etc')}}</h2>
+        @endif
+        <hr>
+        <?php $iter = 0; ?>
         @foreach($posts as $post)
+            <?php $iter++; ?>
             <div class="box-1-1">
                 <div class="col-lg-12 text-left">
-                    <h4>{!! link_to('service/' . $post->slug, $post->title) !!}</h4>
-                </div>
-                <div class="col-lg-12">
-                    <p>{!! $post->content !!}</p>
+                    <h4>{!! link_to('service/' . $post->slug, $iter . '. ' . $post->title) !!}</h4>
                 </div>
             </div>
         @endforeach

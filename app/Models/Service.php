@@ -17,7 +17,7 @@ class Service extends Model {
 
     public function materials()
     {
-        return $this->belongsToMany('App\Models\Materials');
+        return $this->belongsToMany('App\Models\Materials', 'service_materials');
     }
 
 }

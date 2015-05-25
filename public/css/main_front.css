@@ -8879,11 +8879,13 @@ ul {
 footer {
     background: #fff;
     background: #333333;
+    bottom: 0;
+    width: 100%;
 }
 
 footer p {
     margin: 0;
-    padding: 35px 0;
+    padding: 25px 0;
 }
 
 @media screen and (min-width:768px) {
@@ -8950,7 +8952,7 @@ footer p {
 
     .nav>li>a {
         padding: 35px;
-        padding-right: 15px;
+        padding-right: 25px;
     }
 
     .navbar-nav>li>a {
@@ -9009,4 +9011,40 @@ li.imgflag a {
 
 .off-set {
     padding-bottom: 20px;
+}
+
+#type_site{
+    width: 70%;
+    height: 36px;
+    font-size: 18px;
+}
+
+.cost-rectangle{
+    float: right;
+    border: 2px solid #555;
+    margin-right: 105px;
+    padding: 10px 15px;
+}
+
+.input-number{
+    float: right;
+}
+
+.line-cost{
+    margin-bottom: 2px;
+}
+.little{
+    color: #a94442;
+    font-size: 11px;
+    text-align: right;
+}
+.text-right-warn{
+    color: #a94442;
+    text-align: right;
+    margin-bottom: 5px;
+}
+
+.no-border{
+    width: 50px;
+    border: hidden;
 }

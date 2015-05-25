@@ -45,7 +45,7 @@ class BlogController extends Controller {
 		$this->blog_gestion = $blog_gestion;
 		$this->nbrPages = 10;
 
-		$this->middleware('redac', ['except' => ['indexFront', 'show', 'tag', 'search']]);
+		$this->middleware('redac', ['except' => ['indexCellings', 'show', 'tag', 'search', 'indexWalls','indexFloor','indexOpennings','indexEtc',]]);
 		$this->middleware('ajax', ['only' => ['indexOrder', 'updateSeen', 'updateActive']]);
 	}	
 
@@ -54,13 +54,50 @@ class BlogController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function indexFront()
+	public function indexCellings()
 	{
-		$posts = $this->blog_gestion->indexFront($this->nbrPages);
+		$posts = $this->blog_gestion->indexCellings($this->nbrPages);
+        $type = 1;
 		$links = str_replace('/?', '?', $posts->render());
 
-		return view('front.blog.index', compact('posts', 'links'));
+		return view('front.blog.index', compact('posts', 'links', 'type'));
 	}
+
+    public function indexWalls()
+    {
+        $posts = $this->blog_gestion->indexWalls($this->nbrPages);
+        $type = 2;
+        $links = str_replace('/?', '?', $posts->render());
+
+        return view('front.blog.index', compact('posts', 'links', 'type'));
+    }
+
+    public function indexFloor()
+    {
+        $posts = $this->blog_gestion->indexFloor($this->nbrPages);
+        $type = 3;
+        $links = str_replace('/?', '?', $posts->render());
+
+        return view('front.blog.index', compact('posts', 'links', 'type'));
+    }
+
+    public function indexOpennings()
+    {
+        $posts = $this->blog_gestion->indexOpennings($this->nbrPages);
+        $type = 4;
+        $links = str_replace('/?', '?', $posts->render());
+
+        return view('front.blog.index', compact('posts', 'links', 'type'));
+    }
+
+    public function indexEtc()
+    {
+        $posts = $this->blog_gestion->indexEtc($this->nbrPages);
+        $type = 5;
+        $links = str_replace('/?', '?', $posts->render());
+
+        return view('front.blog.index', compact('posts', 'links', 'type'));
+    }
 
 	/**
 	 * Display a listing of the resource.

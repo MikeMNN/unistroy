@@ -13,7 +13,7 @@ class Materials extends Model {
      */
     public function service()
     {
-        return $this->belongsToMany('App\Models\Service');
+        return $this->belongsToMany('App\Models\Service', 'service_materials');
     }
 
 }

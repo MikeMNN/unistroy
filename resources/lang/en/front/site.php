@@ -17,5 +17,6 @@ return [
 	'connection' => 'Connection',
 	'administration' => 'Administration',
 	'redaction' => 'Redaction',
-	'logout' => 'Logout'
+	'logout' => 'Logout',
+    'footer' => '2015 All rights reserved. Unistroy'
 ];

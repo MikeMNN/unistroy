@@ -39,7 +39,7 @@
 	<header role="banner">
 	<div class="logo col-md-16 mod-left">
 		<div class="logo-image" itemscope="">
-			<a itemprop="url" href="unistroy/public" title="Юнистрой">
+			<a itemprop="url" href="/public" title={{ trans('front/site.title') }}>
 				<img class="logo-img" itemprop="logo" src="/public/img/unistroy.png" alt="Юнистрой">
 			</a>
 		</div>
@@ -73,11 +73,11 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{trans('front/site.services')}}<b class="caret"></b></a>
                             <ul class="dropdown-menu">
-                                <li>{!! link_to('services', trans('front/site.cellings')) !!}</li>
-                                <li>{!! link_to('services', trans('front/site.wall')) !!}</li>
-                                <li>{!! link_to('services', trans('front/site.floor')) !!}</li>
-                                <li>{!! link_to('services', trans('front/site.opennings')) !!}</li>
-                                <li>{!! link_to('services', trans('front/site.etc')) !!}</li>
+                                <li>{!! link_to('service/cellings', trans('front/site.cellings')) !!}</li>
+                                <li>{!! link_to('service/walls', trans('front/site.wall')) !!}</li>
+                                <li>{!! link_to('service/floor', trans('front/site.floor')) !!}</li>
+                                <li>{!! link_to('service/opennings', trans('front/site.opennings')) !!}</li>
+                                <li>{!! link_to('service/etc', trans('front/site.etc')) !!}</li>
                             </ul>
 						</li>
 						@if(Request::is('auth/register'))
@@ -130,7 +130,7 @@
 
 	<footer role="contentinfo">
 		 @yield('footer')
-        <div class="text-left1"><p><small>&copy; 2015. Все права защищены. Юнистрой</small></p></div>
+        <div class="text-left1"><p><small>&copy; {{ trans('front/site.footer') }}</small></p></div>
     </footer>
 		
 	{!! HTML::script('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js') !!}

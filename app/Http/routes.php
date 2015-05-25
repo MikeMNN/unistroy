@@ -35,7 +35,11 @@ Route::get('medias', [
 
 // Blog
 Route::get('service/order', 'BlogController@indexOrder');
-Route::get('services', 'BlogController@indexFront');
+Route::get('service/cellings', 'BlogController@indexCellings');
+Route::get('service/walls', 'BlogController@indexWalls');
+Route::get('service/floor', 'BlogController@indexFloor');
+Route::get('service/opennings', 'BlogController@indexOpennings');
+Route::get('service/etc', 'BlogController@indexEtc');
 Route::get('service/tag', 'BlogController@tag');
 Route::get('service/search', 'BlogController@search');
 
