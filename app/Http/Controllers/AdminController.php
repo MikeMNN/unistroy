@@ -41,10 +41,10 @@ class AdminController extends Controller {
 	{	
 		$nbrMessages = $contact_gestion->getNumber();
 		$nbrUsers = $this->user_gestion->getNumber();
-		$nbrPosts = $blog_gestion->getNumber();
+		//$nbrPosts = $blog_gestion->getNumber();
 		$nbrComments = $comment_gestion->getNumber();
 
-		return view('back.index', compact('nbrMessages', 'nbrUsers', 'nbrPosts', 'nbrComments'));
+		return view('back.index', compact('nbrMessages', 'nbrUsers', 'nbrComments'));
 	}
 
 	/**

@@ -81,20 +81,10 @@
                         </li>
                         <li {!! Request::is('contact') ? 'class="active"' : '' !!}>
                             <a href="{!! url('contact') !!}"><span class="fa fa-fw fa-envelope"></span> {{ trans('back/admin.messages') }}</a>
-                        </li>  
-                        <li {!! Request::is('comment') ? 'class="active"' : '' !!}>
-                            <a href="{!! url('comment') !!}"><span class="fa fa-fw fa-comments"></span> {{ trans('back/admin.comments') }}</a>
-                        </li> 
+                        </li>
                     @endif                  
                     <li {!! Request::is('medias') ? 'class="active"' : '' !!}>
                         <a href="{!! route('medias') !!}"><span class="fa fa-fw fa-file-image-o"></span> {{ trans('back/admin.medias') }}</a>
-                    </li>
-                    <li {!! Request::segment(1) == ('blog') ? 'class="active"' : '' !!}>
-                        <a href="#" data-toggle="collapse" data-target="#articlemenu"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.posts') }} <span class="fa fa-fw fa-caret-down"></a>
-                        <ul id="articlemenu" class="collapse">
-                            <li><a href="{!! url('blog') !!}">{{ trans('back/admin.see-all') }}</a></li>
-                            <li><a href="{!! url('blog/create') !!}">{{ trans('back/admin.add') }}</a></li>
-                        </ul>
                     </li>
                 </ul>
             </div>

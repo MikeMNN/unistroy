@@ -1,14 +1,14 @@
 <?php
 
 return [
-	'dashboard' => 'Gestion des articles',
-	'creation' => 'Création',
+	'dashboard' => 'Список постов',
+	'creation' => 'Создание',
 	'published' => 'Publié',
-	'title' => 'Titre',
-	'permalink' => 'Permalien :',
-	'summary' => 'Sommaire',
-	'content' => 'Contenu',
-	'tags' => 'Mots-clés',
+	'title' => 'Заголовок',
+	'permalink' => 'Ссылка :',
+	'summary' => 'Сводка',
+	'content' => 'Контент',
+	'tags' => 'Теги',
 	'edition' => 'Modification',
 	'add' => 'Ajouter un article',
 	'posts' => 'Articles',

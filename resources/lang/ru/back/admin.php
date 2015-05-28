@@ -1,20 +1,20 @@
 <?php
 
 return [
-	'administration' => 'Administration',
-	'redaction' => 'Rédaction',
-	'home' => 'Retour sur le site',
-	'logout' => 'Déconnexion',
-	'dashboard' => 'Tableau de bord',
-	'users' => 'Utilisateurs',
-	'see-all' => 'Voir tous',
-	'add' => 'Ajouter',
-	'messages' => 'Messages',
-	'comments' => 'Commentaires',
-	'medias' => 'Médias',
-	'posts' => 'Articles',
-	'new-messages' => 'Nouveaux messages !',
-	'new-registers' => 'Nouveaux inscrits !',
-	'new-posts' => 'Nouveaux articles !',
-	'new-comments' => 'Nouveaux commentaires !'
+	'administration' => 'Администрирование',
+	'redaction' => 'Редактирование',
+	'home' => 'Назад на сайт',
+	'logout' => 'Выйти',
+	'dashboard' => 'Панель',
+	'users' => 'Пользователи',
+	'see-all' => 'Посмотреть всех',
+	'add' => 'Добавить',
+	'messages' => 'Сообщения',
+	'comments' => 'Комментарии',
+	'medias' => 'Медиа',
+	'posts' => 'Посты',
+	'new-messages' => 'Новые сообщения !',
+	'new-registers' => 'Новые пользователи !',
+	'new-posts' => 'Новые посты !',
+	'new-comments' => 'Новые комментарии !'
 ];

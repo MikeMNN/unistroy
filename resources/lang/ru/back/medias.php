@@ -1,6 +1,6 @@
 <?php
 
 return [
-	'dashboard' => 'Gestion des médias',
-	'medias' => 'Médias'
+	'dashboard' => 'Управление медиа',
+	'medias' => 'Медиа'
 ];
