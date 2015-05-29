@@ -153,10 +153,10 @@ class BlogRepository extends BaseRepository{
 	 * @param  string  $direction
 	 * @return Illuminate\Support\Collection
 	 */
-	public function index($n, $user_id = null, $orderby = 'title', $direction = 'desc')
+	public function index($n, $user_id = null, $orderby = 'title', $direction = 'asc')
 	{
 		$query = $this->model
-		->select('services.id', 'title',  'content')
+		->select('services.id', 'title', 'slug', 'content')
 		->orderBy($orderby, $direction);
 
 		if($user_id) 

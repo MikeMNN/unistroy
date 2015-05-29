@@ -2,7 +2,7 @@
 
 @section('main')
 
-  @include('back.partials.entete', ['title' => trans('back/blog.dashboard') . link_to_route('service.create', trans('back/blog.add'), [], ['class' => 'btn btn-info pull-right']), 'icone' => 'pencil', 'fil' => trans('back/blog.posts')])
+  @include('back.partials.entete', ['title' => trans('back/blog.dashboard') . link_to_route('service.create', trans('back/blog.add'), [], ['class' => 'btn btn-info pull-right']), 'icone' => 'wrench', 'fil' => trans('back/blog.posts')])
 
 	@if(session()->has('ok'))
     @include('partials/error', ['type' => 'success', 'message' => session('ok')])
@@ -19,11 +19,6 @@
           <tr>
             <th>{{ trans('back/blog.title') }} <a href="#" name="title" class="order"><span class="fa fa-fw fa-unsorted"></lspan></a></th>
             <th>{{ trans('back/blog.date') }} <a href="#" name="created_at" class="order"><span class="fa fa-fw fa-sort-desc"></th>
-            <th>{{ trans('back/blog.published') }} <a href="#" name="active" class="order"><span class="fa fa-fw fa-unsorted"></th> 
-            @if(session('statut') == 'admin')
-              <th>{{ trans('back/blog.author') }} <a href="#" name="username" class="order"><span class="fa fa-fw fa-unsorted"></th>            
-              <th>{{ trans('back/blog.seen') }} <a href="#" name="posts.seen" class="order"><span class="fa fa-fw fa-unsorted"></th>
-            @endif
           </tr>
         </thead>
         <tbody>

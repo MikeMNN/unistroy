@@ -9,17 +9,10 @@
 @section('main')
 
  <!-- Entête de page -->
-  @include('back.partials.entete', ['title' => trans('back/blog.dashboard'), 'icone' => 'pencil', 'fil' => link_to('blog', 'Articles') . ' / ' . trans('back/blog.creation')])
+  @include('back.partials.entete', ['title' => trans('back/blog.dashboard'), 'icone' => 'wrench', 'fil' => link_to('service', 'Услуги') . ' / ' . trans('back/blog.creation')])
 
 	<div class="col-sm-12">
 		@yield('form')
-
-		<div class="form-group checkbox pull-right">
-			<label>
-				{!! Form::checkbox('active') !!}
-				{{ trans('back/blog.published') }}
-			</label>
-		</div>
 
 		{!! Form::control('text', 0, 'title', $errors, trans('back/blog.title')) !!}
 
@@ -29,8 +22,6 @@
 			<small class="text-danger">{!! $errors->first('slug') !!}</small>
 		</div>
 
-		{!! Form::control('textarea', 0, 'summary', $errors, trans('back/blog.summary')) !!}
-		{!! Form::control('textarea', 0, 'content', $errors, trans('back/blog.content')) !!}
 		{!! Form::control('text', 0, 'tags', $errors, trans('back/blog.tags'), isset($tags)? implode(',', $tags) : '') !!}
 
 		{!! Form::submit(trans('front/form.send')) !!}

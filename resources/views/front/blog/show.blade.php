@@ -24,7 +24,12 @@
 							@foreach($post->materials as $materials)
                                     <?if($iter == 0)
                                         $iter = $materials->cost;?>
-                                    <?php print "<option value='$materials->cost'>$materials->name ($materials->content)</option>" ?>
+                                    <?php
+                                            $str = "";
+                                        if ($materials->content != '')
+                                            $str = "($materials->content)";
+                                            ?>
+                                    <?php print "<option value='$materials->cost'>$materials->name $str</option>" ?>
 							@endforeach
                             </select>
 
