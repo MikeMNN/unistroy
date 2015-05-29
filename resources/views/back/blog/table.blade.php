@@ -8,9 +8,9 @@
                 <td>{!! Form::checkbox('seen', $post->id, $post->seen) !!}</td>
               @endif
               <td>{!! link_to('services/' . $post->slug, trans('back/blog.see'), ['class' => 'btn btn-success btn-block btn']) !!}</td>
-              <td>{!! link_to_route('blog.edit', trans('back/blog.edit'), [$post->id], ['class' => 'btn btn-warning btn-block']) !!}</td>
+              <td>{!! link_to_route('service.edit', trans('back/blog.edit'), [$post->id], ['class' => 'btn btn-warning btn-block']) !!}</td>
               <td>
-              {!! Form::open(['method' => 'DELETE', 'route' => ['blog.destroy', $post->id]]) !!}
+              {!! Form::open(['method' => 'DELETE', 'route' => ['service.destroy', $post->id]]) !!}
                 {!! Form::destroy(trans('back/blog.destroy'), trans('back/blog.destroy-warning')) !!}
               {!! Form::close() !!}
               </td>

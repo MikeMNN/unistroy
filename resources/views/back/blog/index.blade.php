@@ -2,7 +2,7 @@
 
 @section('main')
 
-  @include('back.partials.entete', ['title' => trans('back/blog.dashboard') . link_to_route('blog.create', trans('back/blog.add'), [], ['class' => 'btn btn-info pull-right']), 'icone' => 'pencil', 'fil' => trans('back/blog.posts')])
+  @include('back.partials.entete', ['title' => trans('back/blog.dashboard') . link_to_route('service.create', trans('back/blog.add'), [], ['class' => 'btn btn-info pull-right']), 'icone' => 'pencil', 'fil' => trans('back/blog.posts')])
 
 	@if(session()->has('ok'))
     @include('partials/error', ['type' => 'success', 'message' => session('ok')])

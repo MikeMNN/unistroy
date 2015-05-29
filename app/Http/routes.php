@@ -33,7 +33,6 @@ Route::get('medias', [
 ]);
 
 
-// Blog
 Route::get('service/order', 'BlogController@indexOrder');
 Route::get('service/cellings', 'BlogController@indexCellings');
 Route::get('service/walls', 'BlogController@indexWalls');
@@ -42,6 +41,9 @@ Route::get('service/opennings', 'BlogController@indexOpennings');
 Route::get('service/etc', 'BlogController@indexEtc');
 Route::get('service/tag', 'BlogController@tag');
 Route::get('service/search', 'BlogController@search');
+Route::get('service/create', 'BlogController@create');
+Route::get('service/edit', 'BlogController@edit');
+Route::get('service/destroy', 'BlogController@destroy');
 
 Route::put('postseen/{id}', 'BlogController@updateSeen');
 Route::put('postactive/{id}', 'BlogController@updateActive');

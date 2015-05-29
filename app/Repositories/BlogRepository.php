@@ -156,7 +156,7 @@ class BlogRepository extends BaseRepository{
 	public function index($n, $user_id = null, $orderby = 'title', $direction = 'desc')
 	{
 		$query = $this->model
-		->select('services.id', 'title', 'slug', 'content')
+		->select('services.id', 'title',  'content')
 		->orderBy($orderby, $direction);
 
 		if($user_id) 

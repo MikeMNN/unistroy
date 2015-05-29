@@ -8,7 +8,7 @@
 
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Mon site</title>
+		<title>Унистрой</title>
 		<meta name="description" content="">	
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -74,10 +74,17 @@
                         <li {!! Request::is('user') ? 'class="active"' : '' !!}>
                             <a href="#" data-toggle="collapse" data-target="#usermenu"><span class="fa fa-fw fa-user"></span> {{ trans('back/admin.users') }} <span class="fa fa-fw fa-caret-down"></span></a>
                             <ul id="usermenu" class="collapse">
-                                <li><a href="{!! url('user') !!}">{{ trans('back/admin.see-all') }}</a></li>
+                                <li><a href="{!! url('user') !!}">{{ trans('back/admin.see-all') }}х</a></li>
                                 <li><a href="{!! url('user/create') !!}">{{ trans('back/admin.add') }}</a></li>
                                 <li><a href="{!! url('user/roles') !!}">{{ trans('back/roles.roles') }}</a></li>
                             </ul>
+                        </li>
+                        <li {!! Request::segment(1) == ('blog') ? 'class="active"' : '' !!}>
+                        <a href="#" data-toggle="collapse" data-target="#articlemenu"><span class="fa fa-fw fa-yun"></span> {{ trans('back/admin.service') }} <span class="fa fa-fw fa-caret-down"></span></a>
+                        <ul id="articlemenu" class="collapse">
+                            <li><a href="{!! url('service') !!}">{{ trans('back/admin.see-all') }}</a></li>
+                            <li><a href="{!! url('service/create') !!}">{{ trans('back/admin.add') }}</a></li>
+                        </ul>
                         </li>
                         <li {!! Request::is('contact') ? 'class="active"' : '' !!}>
                             <a href="{!! url('contact') !!}"><span class="fa fa-fw fa-envelope"></span> {{ trans('back/admin.messages') }}</a>

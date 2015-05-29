@@ -10,11 +10,8 @@ return [
 	'see-all' => 'See all',
 	'add' => 'Add',
 	'messages' => 'Messages',
-	'comments' => 'Comments',
 	'medias' => 'Medias',
-	'posts' => 'Posts',
 	'new-messages' => 'New posts !',
 	'new-registers' => 'New users !',
-	'new-posts' => 'New posts !',
-	'new-comments' => 'New comments !'
+    'service' => 'Services'
 ];

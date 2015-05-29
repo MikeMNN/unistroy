@@ -13,8 +13,9 @@
             </div>
             <div class="col-lg-13">
                 <h2 class="intro-text-1 text-center">{{ trans('front/contact.contact') }}</h2>
+                <br>
                 <div class="contact-info">
-
+                    <span class="glyphicon glyphicon-map-marker"></span>
                 </div>
             </div>
 			<div class="col-lg-14">
