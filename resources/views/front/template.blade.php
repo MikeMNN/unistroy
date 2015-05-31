@@ -35,7 +35,7 @@
 	<!--[if lt IE 8]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
-
+    <div id="container-wrapper">
 	<header role="banner">
 	<div class="logo col-md-16 mod-left">
 		<div class="logo-image" itemscope="">
@@ -80,6 +80,9 @@
                                 <li>{!! link_to('service/etc', trans('front/site.etc')) !!}</li>
                             </ul>
 						</li>
+                        <li {!! Request::is('gallery/our') ? 'class="active"' : '' !!}>
+                            {!! link_to('gallery/our', trans('front/site.gallery')) !!}
+                        </li>
 						@if(Request::is('auth/register'))
 							<li class="active">
 								{!! link_to('auth/register', trans('front/site.register')) !!}
@@ -128,10 +131,12 @@
 		@yield('main')
 	</main>
 
+        <p class="off-set"></p>
 	<footer role="contentinfo">
 		 @yield('footer')
         <div class="text-left1"><p><small>&copy; {{ trans('front/site.footer') }}</small></p></div>
     </footer>
+
 		
 	{!! HTML::script('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js') !!}
 	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
@@ -149,6 +154,6 @@
 	</script>
 
 	@yield('scripts')
-
+    </div>
   </body>
 </html>

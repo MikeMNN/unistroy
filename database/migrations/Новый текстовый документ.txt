@@ -1,0 +1,7 @@
+@foreach($pictures as $picture)
+            <div class="box-1-1">
+                <div class="col-lg-12">
+                    <?php print "<figure tabindex='1'><img alt='' title='$picture->title' src='$picture->filename' style='float:left; height:128px; width:128px' /></figure>" ?>
+                </div>
+            </div>
+        @endforeach

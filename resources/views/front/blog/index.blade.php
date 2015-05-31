@@ -39,8 +39,7 @@
         <div class="col-lg-12 text-center">
             {!! $links !!}
         </div>
-        <p class="off-set"></p>
     </div>
-
+    <p class="off-set"></p>
 @stop
 

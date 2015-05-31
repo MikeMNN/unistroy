@@ -76,10 +76,7 @@
 			</div>
 		</div>
 	</div>
-    <script>
-        var str = $("p:first").text();
-        $("p:last").text(str);
-    </script>
+    <p class="off-set"></p>
 </div>
 
 @stop

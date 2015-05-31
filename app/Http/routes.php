@@ -64,6 +64,11 @@ Route::resource('contact', 'ContactController', [
 	'except' => ['show', 'edit']
 ]);
 
+//Gallery
+
+Route::get('gallery/our',  'GalleryController@index');
+
+Route::resource('gallery', 'BlogController');
 
 // User
 Route::get('user/sort/{role}', 'UserController@indexSort');

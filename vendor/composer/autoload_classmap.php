@@ -12,6 +12,7 @@ return array(
     'CreateMaterialTable' => $baseDir . '/database/migrations/2015_05_17_225944_create_material_table.php',
     'CreateMaterialsTable' => $baseDir . '/database/migrations/2015_05_21_202012_create_materials_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2015_05_01_100000_create_password_resets_table.php',
+    'CreatePicturesTable' => $baseDir . '/database/migrations/2015_05_31_094032_create_pictures_table.php',
     'CreatePostTagTable' => $baseDir . '/database/migrations/2015_05_04_172904_create_post_tag_table.php',
     'CreatePostsTable' => $baseDir . '/database/migrations/2015_05_04_172107_create_posts_table.php',
     'CreateRolesTable' => $baseDir . '/database/migrations/2015_05_01_105844_create_roles_table.php',

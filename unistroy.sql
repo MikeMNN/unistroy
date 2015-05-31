@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Май 29 2015 г., 07:23
+-- Время создания: Май 31 2015 г., 19:14
 -- Версия сервера: 5.5.41-log
 -- Версия PHP: 5.4.35
 
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `materials` (
   `type` int(11) NOT NULL,
   `cost` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=19 ;
 
 --
 -- Дамп данных таблицы `materials`
@@ -102,7 +102,15 @@ INSERT INTO `materials` (`id`, `name`, `summary`, `content`, `type`, `cost`) VAL
 (7, 'Гипсовый состав', '<img alt="" src="/public/filemanager/userfiles/greatredactor/mega-champignon-icone-8453-128.png" style="float:left; height:128px; width:128px" />', '', 0, 89),
 (8, 'Масляно-клеевый состав', '<img alt="" src="/public/filemanager/userfiles/greatredactor/rouge-shyguy-icone-6870-128.png" style="float:left; height:128px; width:128px" />', '', 0, 63),
 (9, 'Армированная сетка', '', '', 0, 45),
-(10, 'Стеклохолст', '', '', 0, 77);
+(10, 'Стеклохолст', '', '', 0, 77),
+(11, 'ПВХ', '', '', 0, 44),
+(12, 'Пробковые панели', '', '', 0, 56),
+(13, 'Металический порог', '', '', 0, 145),
+(14, 'Клеящая мастика', '', '', 0, 56),
+(15, 'Пластиковые сантехнические лючки', '', '', 0, 215),
+(16, 'Подиум из бетона B15', '', '', 0, 422),
+(17, 'Монтажная пена', '', '', 0, 19),
+(18, 'Цементное молоко', '', '', 0, 34);
 
 -- --------------------------------------------------------
 
@@ -131,7 +139,8 @@ INSERT INTO `migrations` (`migration`, `batch`) VALUES
 ('2015_05_04_222018_create_comments_table', 1),
 ('2015_05_17_225944_create_material_table', 1),
 ('2015_05_17_230109_create_service_table', 1),
-('2015_05_18_230120_create_service_material_table', 1);
+('2015_05_18_230120_create_service_material_table', 1),
+('2015_05_31_094032_create_pictures_table', 2);
 
 -- --------------------------------------------------------
 
@@ -146,6 +155,58 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
   KEY `password_resets_email_index` (`email`),
   KEY `password_resets_token_index` (`token`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `pictures`
+--
+
+CREATE TABLE IF NOT EXISTS `pictures` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `filename` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=32 ;
+
+--
+-- Дамп данных таблицы `pictures`
+--
+
+INSERT INTO `pictures` (`id`, `title`, `filename`, `created_at`, `updated_at`) VALUES
+(1, '', '/public/filemanager/userfiles/greatredactor/_YU-9Stmlw8.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(2, '', '/public/filemanager/userfiles/greatredactor/2TyczmeOKoQ.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(3, '', '/public/filemanager/userfiles/greatredactor/ffvTHXYHlRA.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(4, '', '/public/filemanager/userfiles/greatredactor/KN9jsDP5ZdQ.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(5, '', '/public/filemanager/userfiles/greatredactor/0oMg_BAaaNk.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(6, '', '/public/filemanager/userfiles/greatredactor/8f8KHVGCONQ.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(7, '', '/public/filemanager/userfiles/greatredactor/RivtMqTcDCM.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(8, '', '/public/filemanager/userfiles/greatredactor/KYlHBHib_K8.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(9, '', '/public/filemanager/userfiles/greatredactor/LMpdCOONSOE.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(10, '', '/public/filemanager/userfiles/greatredactor/PmaySpHZHwQ.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(11, '', '/public/filemanager/userfiles/greatredactor/TV_BOn6KPXY.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(12, '', '/public/filemanager/userfiles/greatredactor/7CC7xG3Lgmw.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(13, '', '/public/filemanager/userfiles/greatredactor/7LO3tLVgtZQ.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(14, '', '/public/filemanager/userfiles/greatredactor/a0lFDIs2-Sw.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(15, '', '/public/filemanager/userfiles/greatredactor/vOBx5V324Fg.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(16, '', '/public/filemanager/userfiles/greatredactor/BaMzXD8MKLs.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(17, '', '/public/filemanager/userfiles/greatredactor/eEocwR8s2z0.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(18, '', '/public/filemanager/userfiles/greatredactor/zBjHlXQBZmA.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(19, '', '/public/filemanager/userfiles/greatredactor/cSLJF2YRXqk.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(20, '', '/public/filemanager/userfiles/greatredactor/jTTP0RWAgSA.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(21, '', '/public/filemanager/userfiles/greatredactor/TNa-5npABPk.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(22, '', '/public/filemanager/userfiles/greatredactor/CYS25hrPIf8.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(23, '', '/public/filemanager/userfiles/greatredactor/rgy1OXU8PdA.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(24, '', '/public/filemanager/userfiles/greatredactor/RivtMqTcDCM.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(25, '', '/public/filemanager/userfiles/greatredactor/ydXXmDW1-SI.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(26, '', '/public/filemanager/userfiles/greatredactor/dAtYyva-czk.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(27, '', '/public/filemanager/userfiles/greatredactor/gTl92yjK6VI.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(28, '', '/public/filemanager/userfiles/greatredactor/hLtSHJn3aMM.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(29, '', '/public/filemanager/userfiles/greatredactor/KBthcDEhB1U.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(30, '', '/public/filemanager/userfiles/greatredactor/MGpyqbjLblI.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+(31, '', '/public/filemanager/userfiles/greatredactor/hdvekOEhwTQ.jpg', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -246,7 +307,7 @@ CREATE TABLE IF NOT EXISTS `services` (
   `type` int(11) NOT NULL,
   `cost` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=21 ;
 
 --
 -- Дамп данных таблицы `services`
@@ -261,7 +322,18 @@ INSERT INTO `services` (`id`, `title`, `slug`, `content`, `type`, `cost`) VALUES
 (6, 'Проклейка стен', 'prokl-1', '', 2, 49),
 (7, 'Установка дверного доводчика', 'dovod', '', 4, 600),
 (8, 'Оформление дверных проёмов в деревянных перегородках', 'oform-1', '', 4, 750),
-(9, 'Устройство бетонного криволинейного бортика', 'bet-1', '', 5, 800);
+(9, 'Устройство бетонного криволинейного бортика', 'bet-1', '', 5, 800),
+(10, 'Установка галтелей', 'ust-1', '', 1, 65),
+(11, 'Установка деревянных уголков', 'ust-2', '', 1, 30),
+(12, 'Оклейка потолка', 'okl-1', '', 1, 240),
+(13, 'Укладка ковролина', 'ol-3', '', 3, 140),
+(14, 'Укладка порогов', 'por-3', '', 3, 120),
+(15, 'Укладка линолиума', 'lin-3', '', 3, 180),
+(16, 'Установка сантехнических лючков', 'san-3', '', 3, 60),
+(17, 'Устройство подиума', 'pod-3', '', 3, 250),
+(18, 'Устройство теплоизоляции из керамзита', 'tepl-1', '', 3, 100),
+(19, 'Заполнение швов', 'shv-1', '', 3, 7),
+(20, 'Проливка утеплителя', 'utp-1', '', 3, 60);
 
 -- --------------------------------------------------------
 
@@ -276,7 +348,7 @@ CREATE TABLE IF NOT EXISTS `service_materials` (
   PRIMARY KEY (`id`),
   KEY `service_materials_service_id_foreign` (`service_id`),
   KEY `service_materials_materials_id_foreign` (`materials_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=20 ;
 
 --
 -- Дамп данных таблицы `service_materials`
@@ -293,7 +365,15 @@ INSERT INTO `service_materials` (`id`, `service_id`, `materials_id`) VALUES
 (8, 4, 7),
 (9, 4, 8),
 (10, 5, 10),
-(11, 6, 9);
+(11, 6, 9),
+(12, 10, 11),
+(13, 12, 12),
+(14, 14, 13),
+(15, 15, 14),
+(16, 16, 15),
+(17, 17, 16),
+(18, 19, 17),
+(19, 20, 18);
 
 -- --------------------------------------------------------
 
@@ -352,7 +432,7 @@ INSERT INTO `users` (`id`, `username`, `email`, `password`, `role_id`, `seen`, `
 (2, 'GreatRedactor', 'redac@la.fr', '$2y$10$/MMcutewol7J.4YQuclI3u4tgGemLUewH/pBW0ZRabc8cNNkaX99S', 3, 1, 1, '2015-05-18 20:33:14', '2015-05-29 00:19:40', NULL),
 (3, 'Walker', 'walker@la.fr', '$2y$10$BI3VolnP9jONMMKiZrrGhehGBHwqmvumj2hnYkMSI90wI3GtcHyja', 3, 0, 0, '2015-05-18 20:33:14', '2015-05-18 20:33:14', NULL),
 (4, 'Slacker', 'slacker@la.fr', '$2y$10$NOqaTlOeayhz8QTeBPneCehLcwdPiidE5Ey9W9zZIdpbzs96wr1tm', 3, 0, 0, '2015-05-18 20:33:14', '2015-05-24 22:49:03', 'sX9reWfrRnIOjPyK5zwonrfOHc8fnxZhmaB95dLD10vlp6XvAyoZNXaXQce8'),
-(5, 'Yunus', 'Yunus_07@mail.ru', '$2y$10$5GGj4lw9be74I17OOAOKYOua/DGYGAYTdDRGyQmTg4hAwG8b3LqiC', 1, 1, 0, '2015-05-28 22:28:28', '2015-05-28 22:28:35', NULL);
+(5, 'Yunus', 'Yunus_07@mail.ru', '$2y$10$5GGj4lw9be74I17OOAOKYOua/DGYGAYTdDRGyQmTg4hAwG8b3LqiC', 1, 1, 0, '2015-05-28 22:28:28', '2015-05-31 12:01:23', '2hv2DcKShtXoGptbjNY0quin7tJUudqJQ29TP5vn3TpgsFYhL3weGgqHyCLR');
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -375,8 +455,8 @@ ALTER TABLE `posts`
 -- Ограничения внешнего ключа таблицы `post_tag`
 --
 ALTER TABLE `post_tag`
-  ADD CONSTRAINT `post_tag_tag_id_foreign` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`),
-  ADD CONSTRAINT `post_tag_post_id_foreign` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`);
+  ADD CONSTRAINT `post_tag_post_id_foreign` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`),
+  ADD CONSTRAINT `post_tag_tag_id_foreign` FOREIGN KEY (`tag_id`) REFERENCES `tags` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `service_materials`
