@@ -204,7 +204,7 @@ class BlogController extends Controller {
 	{
 		$this->blog_gestion->update($request->all(), $id);
 
-		return redirect('blog')->with('ok', trans('back/blog.updated'));		
+		return redirect('service')->with('ok', trans('back/blog.updated'));
 	}
 
 	/**
@@ -249,7 +249,7 @@ class BlogController extends Controller {
 	{
 		$this->blog_gestion->destroy($id);
 
-		return redirect('blog')->with('ok', trans('back/blog.destroyed'));		
+		return redirect('service')->with('ok', trans('back/blog.destroyed'));
 	}
 
 	/**

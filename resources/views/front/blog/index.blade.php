@@ -26,12 +26,13 @@
                                 <h2 class="text-center">{{trans('front/site.etc')}}</h2>
         @endif
         <hr>
-        <?php $iter = 0; ?>
+        <?php $iter = 0;
+        ?>
         @foreach($posts as $post)
             <?php $iter++; ?>
             <div class="box-1-1">
                 <div class="col-lg-12 text-left">
-                    <h4>{!! link_to('service/' . $post->slug, $iter . '. ' . $post->title) !!}</h4>
+                    <h4>{!! link_to('service/' . $post->slug, $post->title) !!}</h4>
                 </div>
             </div>
         @endforeach

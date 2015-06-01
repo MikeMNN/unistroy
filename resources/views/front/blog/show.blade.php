@@ -70,14 +70,13 @@
                         <form name="myForm" class="input-number">
                             <p class="text-right">{{ trans('front/services.TotalPrice') }} <input class="no-border"  id="rezult" size="4" value="0" disabled></p>
                         </form>
-
+                        <p class="text-right">{!! Form::submit(trans('front/form.add'), ['text-right']) !!}</p>
                     </div>
 				</div>
 			</div>
 		</div>
 	</div>
     <p class="off-set"></p>
-</div>
 
 @stop
 

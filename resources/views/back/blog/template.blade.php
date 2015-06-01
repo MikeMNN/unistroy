@@ -22,8 +22,6 @@
 			<small class="text-danger">{!! $errors->first('slug') !!}</small>
 		</div>
 
-		{!! Form::control('text', 0, 'tags', $errors, trans('back/blog.tags'), isset($tags)? implode(',', $tags) : '') !!}
-
 		{!! Form::submit(trans('front/form.send')) !!}
 
 		{!! Form::close() !!}

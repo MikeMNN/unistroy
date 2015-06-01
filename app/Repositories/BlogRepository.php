@@ -44,11 +44,8 @@ class BlogRepository extends BaseRepository{
   	private function savePost($post, $inputs, $user_id = null)
 	{	
 		$post->title = $inputs['title'];
-		$post->summary = $inputs['summary'];	
-		$post->content = $inputs['content'];	
 		$post->slug = $inputs['slug'];
-		$post->active = isset($inputs['active']);	
-		if($user_id) $post->user_id = $user_id;
+		$post->active = isset($inputs['active']);
 
 		$post->save();
 
@@ -188,15 +185,15 @@ class BlogRepository extends BaseRepository{
 	 */
 	public function edit($id)
 	{
-		$post = $this->model->with('tags')->findOrFail($id);
+		$post = $this->model->with('materials')->findOrFail($id);
 
-		$tags = [];
+		$materials = [];
 
-		foreach($post->tags as $tag) {
-			array_push($tags, $tag->tag);
+		foreach($post->materials as $material) {
+			array_push($materials, $material->name);
 		}
 
-		return compact('post', 'tags');
+		return compact('post', 'materials');
 	}
 
 	/**
@@ -209,26 +206,11 @@ class BlogRepository extends BaseRepository{
 	public function update($inputs, $id)
 	{
 		$post = $this->getById($id);
-		$post = $this->savePost($post, $inputs);
+        $post->title = $inputs['title'];
+        $post->slug = $inputs['slug'];
+        $post->active = isset($inputs['active']);
 
-		// Tag gestion
-		$tags_id = [];
-		if(array_key_exists('tags',  $inputs) && $inputs['tags'] != '') {
-
-			$tags = explode(',', $inputs['tags']);
-
-			foreach ($tags as $tag) {
-				$tag_ref = $this->tag->whereTag($tag)->first();
-				if(is_null($tag_ref)) {
-					$tag_ref = new $this->tag();	
-					$tag_ref->tag = $tag;
-					$tag_ref->save();
-				} 
-				array_push($tags_id, $tag_ref->id);
-			}
-		}
-
-		$post->tags()->sync($tags_id);
+        $post->save();
 	}
 
 	/**
@@ -305,7 +287,7 @@ class BlogRepository extends BaseRepository{
 	{
 		$model = $this->getById($id);
 
-		$model->tags()->detach();
+		$model->materials()->detach();
 		
 		$model->delete();
 	}	

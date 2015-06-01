@@ -45,6 +45,8 @@ Route::get('service/create', 'BlogController@create');
 Route::get('service/edit', 'BlogController@edit');
 Route::get('service/destroy', 'BlogController@destroy');
 
+Route::post('service/update', 'BlogController@update');
+
 Route::put('postseen/{id}', 'BlogController@updateSeen');
 Route::put('postactive/{id}', 'BlogController@updateActive');
 

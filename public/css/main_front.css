@@ -3730,7 +3730,7 @@ pre code {
     margin-right: -15px;
 }
 
-.col-xs-1,.col-sm-1,.col-md-1,.col-lg-1,.col-xs-2,.col-sm-2,.col-md-2,.col-lg-2,.col-xs-3,.col-sm-3,.col-md-3,.col-lg-3,.col-xs-4,.col-sm-4,.col-md-4,.col-lg-4,.col-xs-5,.col-sm-5,.col-md-5,.col-lg-5,.col-xs-6,.col-sm-6,.col-md-6,.col-lg-6,.col-xs-7,.col-sm-7,.col-md-7,.col-lg-7,.col-xs-8,.col-sm-8,.col-md-8,.col-lg-8,.col-xs-9,.col-sm-9,.col-md-9,.col-lg-9,.col-xs-10,.col-sm-10,.col-md-10,.col-lg-10,.col-xs-11,.col-sm-11,.col-md-11,.col-lg-11,.col-xs-12,.col-sm-12,.col-md-12,.col-lg-12, .col-lg-13, .col-lg-14, .col-lg-15 {
+.col-xs-1,.col-sm-1,.col-md-1,.col-lg-1,.col-xs-2,.col-sm-2,.col-md-2,.col-lg-2,.col-xs-3,.col-sm-3,.col-md-3,.col-lg-3,.col-xs-4,.col-sm-4,.col-md-4,.col-lg-4,.col-xs-5,.col-sm-5,.col-md-5,.col-lg-5,.col-xs-6,.col-sm-6,.col-md-6,.col-lg-6,.col-xs-7,.col-sm-7,.col-md-7,.col-lg-7,.col-xs-8,.col-sm-8,.col-md-8,.col-lg-8,.col-xs-9,.col-sm-9,.col-md-9,.col-lg-9,.col-xs-10,.col-sm-10,.col-md-10,.col-lg-10,.col-xs-11,.col-sm-11,.col-md-11,.col-lg-11,.col-xs-12,.col-sm-12,.col-md-12,.col-lg-12, .col-lg-13, .col-lg-14, .col-lg-15, .col-lg-16 {
     position: relative;
     min-height: 1px;
     padding-left: 15px;
@@ -4375,6 +4375,13 @@ pre code {
          width: 100%;
         height:auto;
     }
+
+    .col-lg-16{
+        max-width: 100%;
+        width: 100%;
+        height:auto;
+        float: right;
+    }
     
     .col-lg-14{
         float: right;
@@ -4382,6 +4389,7 @@ pre code {
     
     .col-lg-13{
          width: 30%;
+        height: auto;
     }
 
     .col-lg-14 {
@@ -6256,7 +6264,7 @@ textarea.input-group-sm>.form-control,textarea.input-group-sm>.input-group-addon
 }
 
 @media (min-width:768px) {
-    .company_banner>.col-md-offset-50,.container>.navbar-header,.container-fluid>.navbar-header,.container>.navbar-collapse,.container-fluid>.navbar-collapse {
+    .company_banner>.col-md-offset-50,.container>.navbar-header,.container-fluid>.navbar-header,.container-fluid>.navbar-collapse {
         margin-right: 0;
         margin-left: 0;
     }
@@ -9057,6 +9065,7 @@ li.imgflag a {
 .contact-info{
     margin: 10px;
     padding: 10px;
+    float: left;
 }
 
 .intro-text-1{
@@ -9085,4 +9094,12 @@ li.imgflag a {
 
 .op-offset{
     margin-bottom: 50px;
+}
+
+.col_16{
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    float: right;
 }
