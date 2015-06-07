@@ -2,5 +2,5 @@
 
 
 return [
-    'gallery' => 'Our works'
+    'title' => 'Our works'
 ];
